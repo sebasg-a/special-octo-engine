@@ -1,34 +1,61 @@
 package com.mycompany.torre_hanoi_backend.model;
 
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
-import org.hibernate.annotations.CreationTimestamp;
+import java.time.Duration;
 
 @Entity
 public class Jugador {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idJugador;
 
     private String nombre;
 
-    @CreationTimestamp
-    private LocalDateTime fechaRegistro;
+    private int numeroMovimientos;
+    private int numeroFichas;
+    private Duration tiempoJugado;
+    
 
-    @Column(name = "num_fichas")  // ← aquí indicamos que en la DB la columna se llama num_fichas
-    private Integer numFichas;
+    // Getters y Setters
+    public Long getIdJugador() {
+        return idJugador;
+    }
 
-    // Getters y setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public void setIdJugador(Long idJugador) {
+        this.idJugador = idJugador;
+    }
 
-    public String getNombre() { return nombre; }
-    public void setNombre(String nombre) { this.nombre = nombre; }
+    public String getNombre() {
+        return nombre;
+    }
 
-    public LocalDateTime getFechaRegistro() { return fechaRegistro; }
-    public void setFechaRegistro(LocalDateTime fechaRegistro) { this.fechaRegistro = fechaRegistro; }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-    public Integer getNumFichas() { return numFichas; }
-    public void setNumFichas(Integer numFichas) { this.numFichas = numFichas; }
-}
+    public Duration getTiempoJugado() {
+        return tiempoJugado;
+    }
+
+    public void setTiempoJugado(Duration tiempoJugado) {
+        this.tiempoJugado = tiempoJugado;
+    }
+
+    public int getNumeroMovimientos() {
+        return numeroMovimientos;
+    }
+
+    public void setNumeroMovimientos(int numeroMovimientos) {
+        this.numeroMovimientos = numeroMovimientos;
+    }
+
+    public int getNumeroFichas() {
+        return numeroFichas;
+    }
+
+    public void setNumeroFichas(int numeroFichas) {
+        this.numeroFichas = numeroFichas;
+    }
+
+    }

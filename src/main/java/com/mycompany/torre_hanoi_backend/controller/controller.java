@@ -25,4 +25,10 @@ public class controller {
     public Jugador createJugador(@RequestBody Jugador jugador) {
         return jugadorRepository.save(jugador);
     }
+    // Buscar jugador por id
+    @GetMapping("/{id}")
+    public Jugador getJugadorById(@PathVariable Long id) {
+        return jugadorRepository.findById(id).orElse(null);
+    }
+
 }
